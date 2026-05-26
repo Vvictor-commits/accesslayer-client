@@ -23,7 +23,7 @@ const CreatorProfileStatItem: React.FC<CreatorProfileStatItemProps> = ({
 			<p className="relative z-10 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/40 transition-colors duration-300 group-hover:text-amber-200/50">
 				{label}
 			</p>
-			<div className="relative z-10 mt-2.5 font-jakarta text-base font-bold text-white md:text-[1.05rem]">
+			<div className="relative z-10 mt-2.5 min-w-[4rem] font-jakarta text-base font-bold text-white md:text-[1.05rem]">
 				{value}
 			</div>
 		</div>
