@@ -32,6 +32,8 @@ interface CreatorCardProps {
 	className?: string;
 }
 
+const creatorBadgeRowClass = 'mt-2 flex items-center gap-1.5';
+
 const CreatorCard: React.FC<CreatorCardProps> = ({ creator, className }) => {
 	const { isConnected } = useAccount();
 	const { isMismatch: isNetworkMismatch, expectedChainName } = useNetworkMismatch();
@@ -160,7 +162,12 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator, className }) => {
 						<span className="truncate">@{creator.socialHandle}</span>
 					</div>
 				) : (
-					<div className="mt-2 flex items-center gap-1.5 text-xs text-white/30 italic">
+					<div
+						className={cn(
+							creatorBadgeRowClass,
+							'text-xs text-white/30 italic'
+						)}
+					>
 						<LinkIcon className="size-3 opacity-50" />
 						<span>No public handle</span>
 					</div>
