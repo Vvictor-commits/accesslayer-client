@@ -70,15 +70,26 @@ const CreatorProfileHeader: React.FC<CreatorProfileHeaderProps> = ({
 			)}
 		>
 			<div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
-				<div className="size-24 overflow-hidden rounded-2xl border-4 border-white/10 shadow-xl md:size-32">
+				<div
+					className="size-24 overflow-hidden rounded-2xl border-4 border-white/10 shadow-xl md:size-32"
+					role="img"
+					aria-labelledby="creator-profile-name"
+				>
 					<CreatorInitialsAvatar name={name} creatorId={creatorId} imageSrc={avatarUrl} />
 				</div>
 				<div className="min-w-0 space-y-1">
 					<div className="flex items-center gap-2 overflow-hidden">
-						<h1 className="truncate font-grotesque text-3xl font-black tracking-tight text-white md:text-4xl">
+						<h1
+							id="creator-profile-name"
+							className="truncate font-grotesque text-3xl font-black tracking-tight text-white md:text-4xl"
+						>
 							{name}
 						</h1>
-						{isVerified && <div className="shrink-0"><VerifiedBadge verified={true} /></div>}
+						{isVerified && (
+							<div className="shrink-0">
+								<VerifiedBadge verified={true} />
+							</div>
+						)}
 					</div>
 					<p
 						className={cn(

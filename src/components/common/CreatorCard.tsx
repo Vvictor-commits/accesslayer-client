@@ -118,7 +118,11 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator, className }) => {
 				className
 			)}
 		>
-			<div className="relative mb-4 aspect-square overflow-hidden rounded-xl">
+			<div
+				className="relative mb-4 aspect-square overflow-hidden rounded-xl"
+				role="img"
+				aria-labelledby={`creator-name-${creator.id}`}
+			>
 				<CreatorInitialsAvatar
 					name={creator.title}
 					creatorId={creator.id}
@@ -140,7 +144,10 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator, className }) => {
 
 			<div className="mb-4">
 				<div className="flex items-center gap-2 flex-wrap">
-					<h3 className="font-jakarta text-lg font-bold text-white">
+					<h3
+						id={`creator-name-${creator.id}`}
+						className="font-jakarta text-lg font-bold text-white"
+					>
 						{creator.title}
 					</h3>
 					<VerifiedBadge
