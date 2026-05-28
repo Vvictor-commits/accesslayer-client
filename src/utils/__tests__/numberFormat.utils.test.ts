@@ -4,7 +4,6 @@ import {
 	formatCompactNumber,
 	formatFollowerCount,
 	formatPercent,
-	type FormatNumberOptions,
 } from '../numberFormat.utils';
 
 // ---------------------------------------------------------------------------
