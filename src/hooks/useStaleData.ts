@@ -54,18 +54,28 @@ export const useStaleData = (
 		[lastFetchedAt, thresholdMs, tick]
 	);
 
-	// Drive `onStale` exactly once per `lastFetchedAt` epoch.
-	const [staleFiredFor, setStaleFiredFor] = useState<
-		number | null | undefined
-	>(undefined);
+	// Drive `onStale` exactly once per (lastFetchedAt, stale-transition)
+	// pair. When the data becomes fresh again the latch resets so the next
+	// stale transition fires once more — a flow that re-fetches and goes
+	// stale repeatedly will see one fire per stale transition, not one
+	// fire ever.
+	const [hasFiredForCurrentEpoch, setHasFiredForCurrentEpoch] =
+		useState(false);
 	useEffect(() => {
-		if (!result.stale) return;
-		if (staleFiredFor === lastFetchedAt) return;
+		if (!result.stale) {
+			// Becoming fresh resets the latch so the next stale transition
+			// can fire `onStale` again.
+			if (hasFiredForCurrentEpoch) {
+				setHasFiredForCurrentEpoch(false);
+			}
+			return;
+		}
+		if (hasFiredForCurrentEpoch) return;
 		onStale?.();
-		setStaleFiredFor(lastFetchedAt);
-		// `staleFiredFor` only needs to compare against the latest fetched
-		// timestamp, so it's safe to exclude from the dep list — the next
-		// `lastFetchedAt` change re-enables the side effect.
+		setHasFiredForCurrentEpoch(true);
+		// `hasFiredForCurrentEpoch` is intentionally checked but not
+		// listed: we never want a state change *here* to re-trigger the
+		// effect — only the `stale` transition does.
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [result.stale, lastFetchedAt]);
 
