@@ -363,6 +363,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 			</div>
 			<CreatorListRowDivider className="mt-4 mb-2" />
 
+			{/* #354: grouped purchase actions share one sr-only label for context. */}
 			<div
 				role="group"
 				aria-labelledby={`creator-card-actions-label-${creator.id}`}
@@ -372,7 +373,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({
 					id={`creator-card-actions-label-${creator.id}`}
 					className="sr-only"
 				>
-					Actions for {creator.title}
+					Purchase actions for {creator.title}
 				</span>
 				<NetworkFeeHint className="shrink-0" />
 				<AsyncButton
