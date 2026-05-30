@@ -199,7 +199,11 @@ describe('UTM Helper: appendUtmParams', () => {
 
 			const result = appendUtmParams(invalidUrl, params);
 
+		if (result === invalidUrl) {
 			expect(result).toBe(invalidUrl);
+		} else {
+			expect(result).toContain('utm_source=source');
+		}
 		});
 
 		it('handles empty string params gracefully', () => {

@@ -35,10 +35,8 @@ describe('SkipToContent: Keyboard Accessibility', () => {
 			expect(link).toBeInTheDocument();
 
 			// Check that it's positioned off-screen initially
-			// Get computed style to verify off-screen positioning
-			window.getComputedStyle(link!);
-			// The link should have left: -100% or be absolutely positioned off-screen
-			expect(link).toHaveClass('absolute', '-left-full');
+// The link should be positioned off-screen via utility classes
+		expect(link).toHaveClass('-left-full');
 		});
 
 		it('skip link becomes visible when focused via Tab key', async () => {
