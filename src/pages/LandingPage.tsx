@@ -283,7 +283,7 @@ function LandingPage() {
 		touchMoved.current = false;
 	};
 
-	const handleTouchMove = (e: TouchEvent) => {
+	const handleTouchMove = () => {
 		// mark that a move happened; we don't preventDefault so vertical
 		// scrolling remains native and unaffected.
 		touchMoved.current = true;
