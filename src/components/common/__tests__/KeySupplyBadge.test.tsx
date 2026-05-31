@@ -149,7 +149,7 @@ describe('formatRelativeTime edge cases', () => {
 // ---------------------------------------------------------------------------
 describe('Property 6: Badge is unchanged without tooltipContent', () => {
   it('renders no tooltip wrapper when tooltipContent is not provided', () => {
-    const { container } = render(<KeySupplyBadge supply={42} />);
+    render(<KeySupplyBadge supply={42} />);
     // No element with role="tooltip" should be present
     expect(screen.queryByRole('tooltip')).toBeInTheDocument(); // info tooltip is always present
     // The root element should be the badge span directly (no extra wrapper div)
