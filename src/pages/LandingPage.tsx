@@ -256,15 +256,12 @@ function LandingPage() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [isFilterLoading, setIsFilterLoading] = useState(false);
 	const [searchParams, setSearchParams] = useSearchParams();
-	const [searchQuery, setSearchQuery] = useState(() => {
-		const q = searchParams.get('q');
-		return q ?? '';
-	});
-	const searchQueryRef = useRef(searchQuery);
+	const [searchQuery, setSearchQuery] = useState('');
+	const searchQueryRef = useRef<string>('');
 	const sortOptionRef = useRef<SortOption>('featured');
+	const PROFILE_TABS = ['overview', 'creations', 'collectors', 'activity'];
 	const [activeProfileTab, setActiveProfileTab] = useState(() => {
 		if (typeof window === 'undefined') return 'overview';
-		const PROFILE_TABS = ['overview', 'creations', 'collectors', 'activity'];
 		const hash = window.location.hash.slice(1);
 		return PROFILE_TABS.includes(hash) ? hash : 'overview';
 	});
