@@ -42,34 +42,24 @@ export default function Hero() {
 			<div
 				className="absolute inset-x-0 bottom-0 h-[45%] backdrop-blur-[2px]"
 				style={{
-					maskImage:
-						'linear-gradient(to top, black 0%, black 20%, transparent 100%)',
-					WebkitMaskImage:
-						'linear-gradient(to top, black 0%, black 20%, transparent 100%)',
+					maskImage: 'linear-gradient(to top, black 0%, black 20%, transparent 100%)',
+					WebkitMaskImage: 'linear-gradient(to top, black 0%, black 20%, transparent 100%)',
 				}}
 			/>
 			<div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-[#04090f]/30 via-[#04090f]/5 to-transparent" />
 
 			{/* Main content */}
 			<div className="relative bottom-0 z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-				{/* Badge above title */}
-				<div className="flex hidden items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 backdrop-blur-sm">
-					<span className="size-1.5 rounded-full bg-white/60" />
-					<span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/55">
-						coming soon on Stellar
-					</span>
-				</div>
-
 				{/* Headline */}
 				<h1 className="mt-6 font-pt-serif text-[clamp(2.4rem,5.5vw,3.8rem)] font-normal leading-[1.1] text-white">
-					<span className="inline-flex items-center gap-3">
-						Own a piece
+					<span>
+						Own a piece{' '}
 						<img
 							src="/icons/key.svg"
 							alt=""
-							className="size-[0.75em] opacity-50"
+							className="hidden size-[0.75em] -translate-y-[0.1em] align-middle opacity-50 sm:inline"
 						/>
-						of every
+						{' '}of every
 					</span>
 					<br />
 					<span className="italic text-white/75">

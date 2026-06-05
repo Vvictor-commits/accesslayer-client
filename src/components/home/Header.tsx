@@ -19,9 +19,9 @@ export default function Header() {
 					<img
 						src="/icons/logo.svg"
 						alt="Access Layer"
-						className="size-5 opacity-90"
+						className="size-6 opacity-90 sm:size-5"
 					/>
-					<span className="font-mono text-[13px] uppercase tracking-[0.08em] text-white/70">
+					<span className="hidden font-mono text-[13px] uppercase tracking-[0.08em] text-white/70 sm:inline">
 						Access Layer
 					</span>
 				</Link>
