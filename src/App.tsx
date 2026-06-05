@@ -1,12 +1,12 @@
 import { Toaster } from 'react-hot-toast';
 import { createBrowserRouter, RouterProvider } from 'react-router';
-import MarketingPage from './pages/MarketingPage';
+import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <MarketingPage />,
+		element: <HomePage />,
 	},
 	{
 		path: '*',
